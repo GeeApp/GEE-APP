@@ -1,0 +1,148 @@
+{%extends 'layout/base.html'%}
+{% load  static  %}
+{% block nav%}
+{% include 'layout/partials/nav.html'%}
+{% endblock %}
+{% block content %}
+<div class=" home bg-primary">
+    <div class="mt-5 p-4 text-white text-center">
+       <h1 class="display-4 " >
+        DISCUSSION
+       </h1>
+       <P>Vous pouvez entamer une discution</p>
+    </div>
+</div>
+
+<div class=" my-5 bg-white shadow-lg forms-disc rounded py-3 sizes">
+
+   <div class="form position-relative">
+   {% for objs in obj %}
+   
+   {% if objs.user.is_superuser%}
+    {% ifchanged  %}
+    <div class="text-center my-4"><span class=" text-primary p-2 bg-white shadow-sm rounded-3 ">{{ objs.date|date:"M-d-Y"}}</span></div>
+    {% endifchanged %}
+    <div class="card white-box p-0 container taille shadow-lg  bg-primary disc-left rounded-3">   
+        <!-- Comment Row -->
+        <div class="d-flex flex-row comment-row  ">
+            <div class="p-2  img-size">
+                {% if profile_admin %}     
+                <img  src=" {{ profile_admin.url }}" alt="user" width="10" class="thumb-sm rounded-circle img-circle">
+                {% endif %}
+            </div>
+            <div class="comment-text ps-2 ps-md-3 w-100 p-3">
+                <h5 class=" text-white "> 
+                  
+                   {{ objs.message}}
+                 
+                </h5>
+                <span class="mb-3 d-block"><span>
+                <div class="comment-footer   my-2  ">
+                    
+                  
+                    <p class="text-muted heure ms-auto mt-2 mt-md-0 text-white text-end">{{ objs.date|date:"h" }}h{{ objs.date|date:"s" }} <i class="fa fa-check text-success"></i><i class="fa fa-check text-success"></i></p>
+            
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% else %}
+    <div class="card white-box p-0 container  taille shadow-lg  rounded-3 disc-rigth bg-info">   
+        <!-- Comment Row -->
+        <div class="d-flex flex-row comment-row ">
+            <div class="p-2 img-size">
+                {% if profile_disc %}     
+                  {% for prf in profile_disc %}
+                    {% for messages in message %}
+                      {% if prf.user.pk == messages.user.pk%}
+                         {% endif %}
+                    {% endfor %}
+                  {% endfor%}
+                  <img  src=" {{profile_admin.url }}" alt="user" width="10" class="thumb-sm rounded-circle img-circle">
+       
+                {% endif %}
+            </div>
+            <div class="comment-text ps-2 ps-md-3 w-100 p-3">
+                <h5 class=" text-white">{{objs.message}}</h5>
+                <span class="mb-3 d-block"><span>
+                    <div class="comment-footer d-md-flex align-items-center justify-content-evenly ">
+    
+                      
+                        <p class="text-muted heure  ms-auto mt-2 mt-md-0 text-white text-end">{{ objs.date|date:"h" }}h{{ objs.date|date:"s" }}<i class="fa fa-check text-success"></i><i class="fa fa-check text-success"></i></p>
+                    
+                    </div>
+            </div>
+        </div>
+    </div>
+    {%endif%}
+    {% endfor %}
+    
+</div>
+</div>
+        
+
+
+<form method="POST" enctype="multipart/form-data" class="bg-ligth sizes shadow-lg forms-disc marge p-4 ">  
+    {% csrf_token %}
+   <H1>
+  
+   </H1>
+   <div class="form-group ">
+    {{ form.as_p }}
+   </div>
+   <button type="submit " class="btn btn-success text-white"><i class="fa fa-paper-plane"></i></button>
+</form>
+{% endblock %}
+{% block style %}
+<style type="text/css">
+@media(max-width: 1060px){
+.sizes{
+    max-width: 800px!important;
+    margin-left: 1rem;
+    margin-rigth: 1rem; 
+}
+.taille{
+    max-width: 300px!important;
+}
+}
+
+
+@media(max-width: 940px){
+    .sizes{
+        max-width: 700px!important;
+        margin-left: 2rem;
+        margin-rigth: 2rem; 
+    }
+    .taille{
+        max-width: 200px!important;
+    }
+    }
+
+    @media(max-width: 800px){
+        .sizes{
+            max-width: 630px!important;
+          
+        }
+        .taille{
+            max-width: 150px!important;
+        }
+        }  
+        
+    @media(max-width: 672px){
+        .sizes{
+            max-width: 600px!important;
+          
+        }
+        .taille{
+          position: relative!important;
+          
+        }
+        }   
+
+</style>
+{% endblock %}
+
+{% block footer %}
+{% include 'layout/partials/footer.html'%}
+{% endblock %}

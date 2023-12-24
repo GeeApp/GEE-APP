@@ -1,0 +1,28 @@
+{%extends 'layout/base.html'%}
+{% block nav%}
+{% endblock %}
+
+{% block content %}
+{% endblock %}
+{% block footer %}
+<div class="bg-primary position-fixed bottom-0 start-0 end-0 shadow-lg ">
+    <footer>
+        <div class="text-center display">
+               <div>
+                <i class="fa fa-home"></i><br>
+                <a href="{% url 'accounts:Home' %}" class="text-light">Home</a>
+               </div>
+               {% if request.user.is_staff %}
+               <div>
+                <i class="fa fa-cogs"></i><br>
+                <a href="{% url 'admin:index' %}" class="text-light">Parametre</a>
+                </div>
+                {% endif %}
+               <div>
+                <i class="fa fa-user"></i><br>
+                <a href="{% url 'accounts:update_profile' request.user.id %}" class="text-light">Profile</a>
+                </div>
+        </div>
+    </footer>
+</div>
+{% endblock %}

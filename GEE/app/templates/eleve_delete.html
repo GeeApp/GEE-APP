@@ -1,0 +1,38 @@
+{%extends 'layout/base.html'%}
+{% load  static  %}
+{% block nav%}
+{% include 'layout/partials/nav.html'%}
+{% endblock %}
+{% block content %}
+<div class=" home bg-primary">
+    <div class="mt-5 p-4 text-white text-center">
+       <h1 class="display-4 " >
+        SUPPRESION ELEVE
+       </h1>
+       <P>Vous pouvez supprimé un élève dans la base des données</p>
+    </div>
+</div>
+
+<form method="POST" enctype="multipart/form-data" class="bg-ligth shadow-lg forms-disc space   p-4 ">  
+    {% csrf_token %}
+
+   <div class="form-group ">
+    {{ form.as_p }}
+   </div>
+   <button type="submit " class="btn btn-primary text-white">Envoyer</button>
+</form>
+{% endblock %}
+
+
+{% block footer %}
+<script type="text/javascript">
+    select_input = document.querySelector("#id_classe")
+    option_input = document.querySelector("#id_option")
+ 
+
+    select_input.classList.add("form-select")
+    option_input.classList.add("form-select")
+  
+</script>
+{% include 'layout/partials/footer.html'%}
+{% endblock %}

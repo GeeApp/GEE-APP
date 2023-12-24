@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    {% block head%}
+    <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edeg">
+      <meta name="Viewport" content="width=device-width", initial-scale=1.0>
+      <title>GEE.App</title>
+     {% block lien %}
+     <link rel="stylesheet" href="{% static '/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+     <link rel="stylesheet" type="text/css" href="{% static 'css/style.min.css' %}" >
+     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" >
+     {%  endblock%}
+      </head>
+    {% endblock%}
+    <body class="bg-light">
+      <header class="">
+        {% block nav%}
+        {% endblock %}
+      </header>  
+       {% block content %}
+       {% endblock %}
+       {% block section %}
+       {% endblock%}
+       {% block footer %}
+       {%endblock %}
+       {%block style%}
+       {% endblock %}
+       <script src="{% static 'plugins/bower_components/jquery/dist/jquery.min.js'%}"></script>
+       <!-- Bootstrap tether Core JavaScript -->
+       <script src="{% static 'bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+       <!-- ============================================================== -->
+       <!-- This page plugin js -->
+       <!-- ============================================================== -->
+       <script>
+           $(".preloader").fadeOut();
+       </script>
+       <script type="text/javascript" src="{% static '/boostrap/js/bootstrap.min.js' %}"></script>
+       <script type="text/javascript" src="{% static   'js/js.js' %}"></script>
+    </body>
+</html>

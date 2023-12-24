@@ -1,0 +1,68 @@
+{%extends 'layout/base.html'%}
+{% load  static  %}
+{% block nav%}
+{% endblock %}
+
+{% block  head %}
+<link href="{% static 'css2/style.min.css' %}" rel="stylesheet">
+{% block lien %}
+   <link rel="stylesheet" type="text/css" href="{% static '/boostrap/css/bootstrap.min.css' %}"> 
+ {%  endblock%} 
+{% endblock %}
+{% block content %}
+{% endblock %}
+
+{% block section %}
+<section class=" my-5">
+    <div class="container">
+        <!-- ============================================================== -->
+        <!-- Three charts -->
+        <!-- ============================================================== -->
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-12">
+                <div class="white-box analytics-info shadow-lg">
+                    <h3 class="box-title">
+                        <a href="{% url 'forum:communiquer'%}" class="ms-auto" > 
+                        COMMUNIQUER </a></h3>
+                    <ul class="list-inline two-part d-flex align-items-center mb-0">
+                        <li>
+                            <div id="sparklinedash"><canvas width="67" height="30" style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas></div>
+                        </li>
+                          <div id="sparklinedash"><canvas width="67" height="30" style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas></div>
+                          <a href="{% url 'forum:communiquer'%}" class="ms-auto" > <li class="ms-auto"><span class="counter text-success"><i class=" fa fa-bullhorn text-primary" ></i></span></li></a>
+                      </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12">
+                <div class="white-box analytics-info shadow-lg">
+                    <h3 class="box-title text-primary"><a href="{% url 'forum:discussion'%}" class="ms-auto" > 
+                        DISCUSSION</a></h3>
+                    <ul class="list-inline two-part d-flex align-items-center mb-0">
+                        <li>
+                            <div id="sparklinedash2"><canvas width="67" height="30" style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas></div>
+                        </li>
+                        <li class="ms-auto"><span class="counter text-purple"><a href="{% url 'forum:communiquer'%}" class="ms-auto" > 
+                            <i class=" fa fa-users text-primary" ></i></a > </span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12">
+                <div class="white-box analytics-info shadow-lg">
+                    <h3 class="box-title text-primary"><a href="{% url 'app:proclamation'%}" class="ms-auto" >PROCLAMATION</a></h3>
+                    <ul class="list-inline two-part d-flex align-items-center mb-0">
+                        <li>
+                            <div id="sparklinedash3"><canvas width="67" height="30" style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas></div>
+                        </li>
+                        <li class="ms-auto"><span class="counter text-primary"><a href="{% url 'app:proclamation'%}" class="ms-auto" ><i class=" fa fa-child text-primary" ></i></a>
+                        </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock%}
+
+{% block footer %}
+{% endblock %}

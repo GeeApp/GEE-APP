@@ -1,0 +1,23 @@
+{%extends 'layout/base.html'%}
+{% block nav%}
+{% include 'layout/partials/nav.html'%}
+{% endblock %}
+{% block content %}
+<div class=" home bg-primary">
+    <div class="mt-5 p-4 text-white text-center">
+       <h1 class="display-4 " >
+           Bienvenue {{ request.user}} sur GEE.App
+       </h1>
+       <p className="lead"> la meilleur application pour une bonne gestion d'évaluation de vos élèves </p>
+       <hr className="my-4"></hr>
+</div>
+</div>
+{% endblock %}
+
+{% block section %}
+{% include 'layout/partials/section.html'%}
+{% endblock%}
+
+{% block footer %}
+{% include 'layout/partials/footer.html'%}
+{% endblock %}

@@ -1,0 +1,168 @@
+{%extends 'layout/base.html'%}
+{% load  static  %}
+{% block nav%}
+{% include 'layout/partials/nav.html'%}
+{% endblock %}
+{% block content %}
+<div class=" home bg-primary">
+    <div class="mt-5 p-4 text-white text-center">
+       <h1 class="display-4 " >
+           COMMUNIQUER
+       </h1>
+       {% if request.user.is_superuser %}
+       <p> Vous pouvez passer un communiquer ici <p>
+       {% else %}
+       <p> Vous pouvez lire les communiqués en relation avec l'Ecole<p>
+       {% endif %}
+    </div>
+</div>
+{% for objs in obj %} 
+<div class="card white-box p-0 container  shadow-sm marge-communiquer ">
+   
+    <!-- Comment Row -->
+    <div class="d-flex flex-row comment-row p-3 ">
+        <div class="p-2 user-content overlay-box">
+        <div class="overflow-hidden">
+            {% if profile %}     
+            <img  src=" {{ profile.url }}" alt="user" width="40" class="thumb-lg rounded-circle img-circle">
+            {% endif %}
+        </div>           
+        </div>
+        <div class="comment-text ps-2 ps-md-3 w-100">
+            <h5 class="font-medium">{{  objs.user  }}</h5>
+            <span class="mb-3 d-block">{{ objs.message }}<span>
+            <div class="comment-footer d-md-flex align-items-center">
+
+                <span class="badge rounded bg-danger">{{objs.title }}</span>
+                
+                <p class="text-muted  ms-auto mt-2 mt-md-0 text-end">{{ objs.date }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{%endfor %}
+<div class="marge-communiquer marge">
+    <ul class="pagination justify-content-center">
+      {% if obj.has_previous %}
+        <li class="page-item">
+           <a class="page-link" href="?page={{ obj.previous_page_number }}">
+           <span aria-hidden="true"><i class="fa fa-chevron-left "></i></span>
+           </a> 
+        <li>
+      {% endif %}
+      <li class="page-item"><p class="page-link text-muted">Page {{ obj.number}} Sur {{ obj.paginator.num_pages }}</p></li>
+      {% if obj.has_next %}
+      <li class="page-item">
+         <a class="page-link " href="?page={{ obj.next_page_number }}">
+         <span aria-hidden="true"><i class="fa fa-chevron-right  "></i></span>
+         </a> 
+      <li>
+    {% endif %}
+    </ul>  
+</div>
+{% if request.user.is_staff%}
+      
+
+<form method="POST" enctype="multipart/form-data" class="bg-ligth shadow-lg container profile marge p-4 ">  
+    {% csrf_token %}
+    <div class=" text-center">
+        {% if messages %}
+        {% for message in messages%}
+        <div class="alert alert-success text-center container">
+          {{ message }} <i class="fa fa-check-circle"></i>
+        </div>
+        {% endfor %}
+        {% endif%}
+        </div>
+   <div class="form-group ">
+   {{ form.as_p }}
+   </div>
+   <button type="submit " class="btn btn-success text-white">Create</button>
+</form>
+
+{% endif%}
+{% endblock %}
+
+{% block style %}
+<style type="text/css">
+@media(max-width: 1500px){
+  .card,form{
+    max-width: 700px!important;
+    width: 100%;
+    heigth: auto;
+  }  
+}
+
+@media(max-width: 730px){
+    .card,form{
+      max-width: 500px!important;
+      width: 100%;
+      heigth: auto;
+    } 
+    h1{
+        font-size: 2.3rem!important;
+        font-weight: bold;
+        
+    } 
+  }
+  
+@media(max-width: 530px){
+    .card,form{
+      max-width: 400px!important;
+      width: 100%;
+      heigth: auto;
+    } 
+    
+  }
+
+  @media(max-width: 450px){
+    .card,form{
+      max-width: 300px!important;
+      width: 100%;
+      heigth: auto;
+    } 
+    
+  @media(max-width: 375px){
+    h1{
+      font-size: 32px!important;
+      font-weight: bold;
+      text-align: center!important;
+      
+  } 
+  }
+   
+  @media(max-width: 348px){
+    h1{
+      font-size: 26px!important;
+     
+      
+  } 
+  }
+  
+  @media(max-width: 320px){
+    h1{
+      font-size: 20px!important;
+      
+  } 
+  .card,form{
+    max-width: 250px!important;
+  } 
+  }
+
+  @media(max-width: 260px){
+    h1{
+      font-size: 17px!important;
+      
+  } 
+  .card,form{
+    max-width: 230px!important;
+  } 
+  }
+  }
+  
+</style>
+{%endblock%}
+{% block footer %}
+{% include 'layout/partials/footer.html'%}
+{% endblock %}

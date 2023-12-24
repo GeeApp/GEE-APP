@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    {% block head%}
+    <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edeg">
+      <meta name="Viewport" content="width=device-width", initial-scale=1.0>
+      <title>GEE.App</title>
+
+      <link rel="stylesheet" href="{% static '/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+      <link rel="stylesheet" type="text/css" href="{% static 'cssMySelf/style.css' %} ">
+      <link rel="icon" href="data:,">
+      <link rel="stylesheet" type="text/css" href="{% static 'css/style.min.css' %}" >
+    </head>
+    {% endblock%}
+    <body class="bg-light">
+      <header class="">
+        {% block nav%}
+        {% endblock %}
+      </header>  
+       {% block content %}
+       {% endblock %}
+       {% block section %}
+       {% endblock%}
+       {% block style %}
+       {%endblock%}
+       {% block footer %}
+       {%endblock %}
+       <script src="{% static 'plugins/bower_components/jquery/dist/jquery.min.js'%}"></script>
+       <!-- Bootstrap tether Core JavaScript -->
+       <script src="{% static 'bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+       <!-- ============================================================== -->
+       <!-- This page plugin js -->
+       <!-- ============================================================== -->
+       <script>
+          
+       </script>
+       <script type="text/javascript" src="{% static   '/jsMySelf/document.js' %}"></script>
+    </body>
+</html>

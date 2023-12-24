@@ -1,0 +1,132 @@
+.disc-left{
+    position: relative;
+    left: -220px;
+    border-radius: 15px;
+}
+.disc-left h5{
+    width: 80%;
+}
+.heure{
+ width: 80%;
+}
+.form{
+    max-width: 380px;
+    width: 100%;
+    margin: auto;
+}
+.disc-rigth{
+    position: relative;
+    right: -220px;
+}
+.forms-disc{
+    max-width: 1000px;
+    padding: 1rem;
+    width: 100%;
+    margin: auto;
+}
+.center-form{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.marge{
+    margin-bottom: 7%;
+  }
+  .marge-communiquer{
+       margin-top: 4%;
+  }
+  body{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    .div-connect{
+    max-width: 700px;
+    width: 100%;
+    }
+    section{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    }
+    footer{
+    height: 56px;
+    }
+    .navbar {
+    position: relative;
+    z-index: 10;
+    }
+    .profile{
+      padding: 9rem;
+      
+    }
+    .home{
+      padding: 2rem;
+    }
+    a{
+      text-decoration: none;
+    }
+    .icon i{
+    font-size: 90px;
+    text-align: center;
+    }
+    .width{
+    max-width: 1000px;
+    width: 100%;
+    margin: 1rem auto;
+    display: flex;
+    justify-content: space-around;
+    }
+    .error{
+      font-weight: bold;
+    }
+    .width div{
+    padding: 2rem;
+    border-radius: 15px;
+    }
+    footer .display{
+    color: #fff;
+    display: flex;
+    justify-content: space-around;
+    max-width: 1000px;
+    width: 100%;
+    margin: auto;
+    font-weight: bold;
+    }
+    .reunion{
+    transform: scale(5)
+    }
+    .image-logo{
+    margin: auto ;
+    width: 100%;
+    max-width: 100px;
+    border-radius: 15px;
+    padding: 1rem;
+    }
+    .image-logo img{
+      max-width: 50px;
+    }
+    nav a{
+      font-weight: bold;
+      
+    }
+    .conter{
+      float: right;
+    }
+    .error{
+      font-weight: bold;
+    }
+    .reunion{
+      transform: scale(5)
+      }
+    .communiquer{
+      max-width: 300px !important;
+      width: 100%;
+    }
+    .space{
+        margin-top: 2rem;
+        margin-bottom: 5rem;
+    }

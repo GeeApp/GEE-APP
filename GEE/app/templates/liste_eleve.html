@@ -1,0 +1,57 @@
+{%extends 'layout/base.html'%}
+{% load  static  %}
+{% block nav%}
+{% include 'layout/partials/nav.html'%}
+{% endblock %}
+{% block content %}
+<div class=" home bg-primary">
+    <div class="mt-5 p-4 text-white text-center">
+       <h1 class="display-4 " >
+        LISTE DES ELEVES
+       </h1>
+       <P>Vous avez la possibilité de voir la liste des élèves et de modifier les informations qui leur sont attachée</p>
+    </div>
+</div>
+
+<form method="get" action="{% url 'app:searchStudent' %}" enctype="multipart/form-data" class="container my-3 ">  
+<div class="container ">
+  <div class="form-group ">
+    <input type="text" class="form-control shadow-sm py-3" id="search" name="search" placeholder="Enter your search" /><br>
+    <button type="submit " class="btn btn-primary text-white">Rechercher</button>
+  </div>
+  <div> </div>
+</div>
+</form>
+<table class="table container shadow-lg  my-5">
+    <thead>
+      <tr>
+        <th scope="col">Matricule</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Post-Nom</th>
+        <th scope="col">Classe</th>
+        <th scope="col">Option</th>
+        <th scope="col">Suppression</th>
+        <th scope="col">Modification</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for instance in Eleve %}
+        <tr>
+            <th scope="row">{{ instance.matr_eleve}}</th>
+            <td>{{ instance.nom_el }}</td>
+            <td>{{ instance.post_nom_el}}</td>
+            <td>{{ instance.classe }}</td>
+            <td>{{ instance.option }}</td>
+           <td><a href="{% url 'app:suppression' instance.id %}" class="btn btn-danger text-white delete">Supprimer<a></td>
+           <td><a href="{% url 'app:eleve_update' instance.id %}" class="btn btn-primary update">Modifier<a></td>
+          </tr>
+       {% endfor %}
+      
+    </tbody>
+  </table><br>
+  
+{% endblock %}
+
+{% block footer %}
+{% include 'layout/partials/footer.html'%}
+{% endblock %}

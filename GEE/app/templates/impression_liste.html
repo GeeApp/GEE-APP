@@ -1,0 +1,72 @@
+{%extends 'layout/base.html'%}
+{% load  static  %}
+{% block nav%}
+{% endblock %}
+{% block content %}
+
+<table class="table container shadow-lg  my-5">
+  {% if Eleve %}
+    {% if liste == "student" %}  
+      <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Matricule</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Post-Nom</th>
+            <th scope="col">Classe</th>
+            <th scope="col">Option</th>      
+          </tr>
+        </thead>
+        <tbody>
+            {% for instance in Eleve %}
+            <tr>
+                <th scope="row">{{ instance.id}}</th>
+                <td>{{ instance.matr_eleve}}</td>
+                <td>{{ instance.nom_el }}</td>
+                <td>{{ instance.post_nom_el}}</td>
+                <td>{{ instance.classe }}</td>
+                <td>{{ instance.option }}</td>
+              </tr>
+        {% endfor %}
+        {% endif %}
+        {% endif %}  
+
+    
+        {% if Teacher %}
+        {% if liste == "teacher" %}  
+          <thead>
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Matricule</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Post-Nom</th>
+                <th scope="col">Prénom</th>
+                <th scope="col">Sexe</th>  
+                <th scope="col">Etat-Civil</th> 
+                <th scope="col">Niveau D'étude</th> 
+                <th scope="col">Téléphone</th>     
+              </tr>
+            </thead>
+            <tbody>
+                {% for instance in Teacher %}
+                <tr>
+                    <th scope="row">{{ instance.id}}</th>
+                    <td>{{ instance.matr_ens }}</td>
+                    <td>{{ instance.nom_ens}}</td>
+                    <td>{{ instance.post_ens }}</td>
+                    <td>{{ instance.prenom_ens }}</td>
+                    <td>{{ instance.sexe_ens }}</td>
+                    <td>{{ instance.etat_civil_ens }}</td>
+                    <td>{{ instance.niveau_etude }}</td>
+                    <td>{{ instance.tel_ens }}</td>
+                  </tr>
+            {% endfor %}
+            {% endif %}
+            {% endif %}  
+    </tbody>
+  </table><br>
+  
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

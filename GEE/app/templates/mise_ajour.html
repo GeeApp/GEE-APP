@@ -1,0 +1,87 @@
+{%extends 'layout/base.html'%}
+{% block nav%}
+{% include 'layout/partials/nav.html'%}
+{% endblock %}
+{% block content %}
+<div class=" home bg-primary">
+    <div class="mt-5 p-4 text-white text-center">
+       <h1 class="display-4 " >
+           MISE AJOUR
+       </h1>
+       <p className="lead"> Vous pouvez mettre à jour les tables si dessous </p>
+       <hr className="my-4"></hr>
+</div>
+</div>
+{% endblock %}
+
+
+{% block section %}
+<div class="container mt-4 marge">
+    <div class="row">
+        <div class="col-sm-4 shadow-lg">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title fw-bold">ELEVE</h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <a href="{% url 'app:create_student' %}" class="btn btn-outline-primary shadow-lg   my-2">Création</a>
+              <a href="{% url 'app:liste_eleve' %}?page=UpdateAndDelete" class=" btn btn-primary shadow-lg mx-1">Modification</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 shadow-lg">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title fw-bold">CLASSE</h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <a href="{% url 'app:create_classe' %}" class="btn btn-primary shadow-lg   text-white">Création</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 shadow-lg">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title fw-bold">OPTION</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="{% url 'app:create_option' %}" class="btn btn-outline-primary shadow-lg ">Création</a>
+              </div>
+            </div>
+          </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-sm-4 shadow-lg">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title fw-bold">COURS</h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <a href="{% url 'app:create_cours' %}" class="btn btn-primary shadow-lg ">Création</a>
+              
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 shadow-lg">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title fw-bold">EPREUVE</h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <a href="{% url 'app:create_epreuve' %}" class="btn btn-primary shadow-lg   text-white">Création</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 shadow-lg ">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title fw-bold">PASSER</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a href="{% url 'app:create_passe' %}" class="btn btn-primary shadow-lg   ">Création</a>
+              </div>
+            </div>
+          </div>
+      </div>
+      
+</div>
+{% endblock%}
+
+{% block footer %}
+{% include 'layout/partials/footer.html'%}
+{% endblock %}

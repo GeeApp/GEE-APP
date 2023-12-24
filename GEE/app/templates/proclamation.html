@@ -1,0 +1,52 @@
+{%extends 'layout/base.html'%}
+{% load  static  %}
+{% block nav%}
+{% include 'layout/partials/nav.html'%}
+{% endblock %}
+{% block content %}
+<div class=" home bg-primary">
+    <div class="mt-5 p-4 text-white text-center">
+       <h1 class="display-4 " >
+        PROCLAMATION
+       </h1>
+       <P>Palmares des reussites</p>
+    </div>
+</div>
+{% endblock %}
+
+{% block section %}
+
+<table class="table container shadow-lg  my-5">
+    <thead>
+      <tr>
+        <th scope="row"> N° </th>
+        <th>Nom</th>
+        <th>Post-Nom</th>
+        <th>Prenom</th>
+        <th>Sexe</th>
+       <th>Option</th>
+       <th>Classe</th>
+       <th>%</th>  
+       <th>Période</th>
+       <th>Semestre</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row"> 1 </th>
+            <td>Yeta</td>
+            <td>Ekama</td>
+            <td>Joyce</td>
+            <td>M</td>
+           <td>Informatique</td>
+           <td>G3</td>
+           <td>60</td> 
+           <td>1ère</td>
+           <td>2ème</td> 
+    </tbody>
+  </table><br>
+ 
+{% endblock%}
+{% block footer %}
+{% include 'layout/partials/footer.html'%}
+{% endblock %}

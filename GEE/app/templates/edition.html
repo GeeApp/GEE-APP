@@ -1,0 +1,81 @@
+{%extends 'layout/base.html'%}
+{% load  static  %}
+{% block nav%}
+{% include 'layout/partials/nav.html'%}
+{% endblock %}
+{% block content %}
+<div class=" home bg-primary">
+    <div class="mt-5 p-4 text-white text-center">
+       <h1 class="display-4 " >
+        EDITIONS DE DONNEES
+       </h1>
+       <P>Vous pouvez éditer une liste des données</p>
+    </div>
+</div>
+{% endblock %}
+
+{% block section %}
+<section class="my-5  ">
+    <div class="container my-5">
+        <!-- ============================================================== -->
+        <!-- Three charts -->
+        <!-- ============================================================== -->
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-12">
+                <div class="white-box analytics-info shadow-lg">
+                    <h3 class="box-title">
+                        <a href="{% url 'app:liste_eleve'%}?page=impression_liste&imprimer=student" class="ms-auto" > 
+                        LISTE DES ELEVE </a></h3>
+                    <ul class="list-inline two-part d-flex align-items-center mb-0">
+                        <li>
+                            <div id="sparklinedash"><canvas width="67" height="30" style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas></div>
+                        </li>
+                          <div id="sparklinedash"><canvas width="67" height="30" style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas></div>
+                          <a href="{% url 'app:liste_eleve'%}?page=impression_liste&imprimer=student" class="ms-auto" > <li class="ms-auto"><span class="counter text-success"><i class=" fa fa-bullhorn text-primary" ></i></span></li></a>
+                      </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12">
+                <div class="white-box analytics-info shadow-lg">
+                    <h3 class="box-title text-primary"><a href="{% url 'app:liste_eleve'%}?page=impression_liste&imprimer=teacher" class="ms-auto" > 
+                        LISTE DES ENSEIGNANT</a></h3>
+                    <ul class="list-inline two-part d-flex align-items-center mb-0">
+                        <li>
+                            <div id="sparklinedash2"><canvas width="67" height="30" style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas></div>
+                        </li>
+                        <li class="ms-auto"><span class="counter text-purple"><a href="{% url 'app:liste_eleve'%}?page=impression_liste&imprimer=teacher" class="ms-auto" > 
+                            <i class=" fa fa-users text-primary" ></i></a > </span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12">
+                <div class="white-box analytics-info shadow-lg">
+                    <h3 class="box-title text-primary">PALMARES DE REUSSITE</h3>
+                    <ul class="list-inline two-part d-flex align-items-center mb-0">
+                        <li>
+                            <div id="sparklinedash3"><canvas width="67" height="30" style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas></div>
+                        </li>
+                        <li class="ms-auto"><span class="counter text-primary"><i class=" fa fa-child text-primary" ></i>
+                        </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock%}
+
+{%block style%}
+<style type="text/css">
+.space{
+    margin: 3% auto;
+}
+</style>
+{%endblock%}
+{% block footer %}
+<script type="text/javascript">
+  
+</script>
+{% include 'layout/partials/footer.html'%}
+{% endblock %}

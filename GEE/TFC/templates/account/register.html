@@ -1,0 +1,43 @@
+
+{%extends 'layout/base.html'%}
+{% load static  %}
+{% block nav%}
+{% endblock %}
+{% block content %}
+<div class="center-form">
+  <div class="form-group  bg-light  shadow-lg container div-connect px-5 py-2 my-5 ">
+    <div class=" text-center bg-light shadow-lg my-2">
+     
+   </div>
+      <h2 class="text-center">Créer un compte</h2>
+      
+      {% if messages %}
+      {% for message in messages%}
+      
+      <div class="alert alert-info text-center">
+      {{ message }}
+      </div>
+      {% endfor %}
+      {% endif%}
+      
+      
+      <form method="POST" enctype="multipart/form-data" class=" ">  
+          {% csrf_token %} 
+             
+             <div class="form-group container">
+             {{ form.as_p }}
+             </div>
+        <div>
+          <button type="submit " class="btn btn-primary text-white">Créer</button>
+        </div>   
+      </form>
+      </div>
+      <div class=" container div-connect alert alert-info shadow-lg p-5 text-center text-black form ">
+        <h4>
+        
+          <a href="{% url 'accounts:Login' %}" class="">Retour à la page Login</a>
+        </h4>
+        </div>
+</div>
+
+{% endblock%}

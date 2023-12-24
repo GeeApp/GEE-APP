@@ -1,0 +1,43 @@
+{%extends 'layout/base.html'%}
+{% load  static  %}
+{% block nav%}
+{% include 'layout/partials/nav.html'%}
+{% endblock %}
+{% block content %}
+<div class=" home bg-primary">
+    <div class="mt-5 p-4 text-white text-center">
+       <h1 class="display-4 " >
+        CREATION ELEVE
+       </h1>
+       <P>Vous devriez lié  l'élève  crée recemment à une année scolaire et à sa classe d'appartenance</p>
+    </div>
+</div>
+
+<form method="POST" enctype="multipart/form-data" class="bg-ligth shadow-lg forms-disc space   p-4 ">  
+    {% csrf_token %}
+   <div class="form-group ">
+    {{ form.as_p }}
+   </div>
+   <button type="submit " class="btn btn-primary text-white">Créer</button>
+</form>
+{% endblock %}
+
+{%block style%}
+<style type="text/css">
+.space{
+    margin: 3% auto;
+}
+</style>
+{%endblock%}
+{% block footer %}
+<script type="text/javascript">
+    an_scolaire = document.querySelector("#id_anne_sclo")
+    select_input = document.querySelector("#id_eleve")
+    class_input = document.querySelector("#id_classe")
+    
+    class_input.classList.add("form-select")
+    select_input.classList.add("form-select")
+</script>
+
+{% include 'layout/partials/footer.html'%}
+{% endblock %}

@@ -1,0 +1,23 @@
+{%extends 'layout/base.html'%}
+{% load  static  %}
+{% block nav%}
+{% include 'layout/partials/nav.html'%}
+{% endblock %}
+{% block content %}
+<div class="center-form">
+<form method="POST" enctype="multipart/form-data" action="{% url 'app:liste_eleve'  %}?page=suppression" class="alert alert-primary text-center container ">  
+    {% csrf_token %}
+   <H3 class="text-dark py-2">
+    Etes vous sur de vouloir supprimer l'élève {{ name }}  matricule {{ matr }}
+   </H3>
+   <div class="form-group ">
+   {{ form.as_p }}
+   </div>
+   <button type="submit " class="btn btn-danger text-white">Supprimer</button>
+   <a href="{% url 'app:liste_eleve'  %}?page=suppression" class="btn btn-primary text-white">Retour</a>
+</form>
+</div>
+{% endblock %}
+{% block footer %}
+{% include 'layout/partials/footer.html'%}
+{% endblock %}

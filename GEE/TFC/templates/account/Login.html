@@ -1,0 +1,42 @@
+{%extends 'layout/base.html'%}
+{% load  static  %}
+{% block nav%}
+{% endblock %}
+{% block content %}
+<div class="center-form">
+  <div class=" container bg-light shadow-lg my-5 div-connect py-2 ">
+    <div class="text-center">
+      <h1>Login</h1>
+    </div>
+      
+  <div class=" text-center">
+  {% if messages %}
+  {% for message in messages%}
+  <div class="alert alert-danger text-center">
+    {{ message }}
+  </div>
+  {% endfor %}
+  {% endif%}
+  </div>
+      
+    <form method="POST" enctype="multipart/form-data" class="form">  
+      {% csrf_token %}
+      <div class="form-groud  container  my-4 ">
+        <label class="">Username</label>
+      <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username"><br>
+        <label>Password</label>
+      <input type="password" class="form-control" id="password" name="password" placeholder="Enter password"><br>
+      <div class="">
+        <button type="submit " class="btn btn-primary text- ">Connexion</button>
+          </div> <br> 
+      </div>  
+    </div>
+    </form>
+  <div class=" container div-connect alert alert-info shadow-lg p-5 text-center text-black form ">
+  <h4>
+  
+    <a href="" class="">Vous avez pas de compte ?</a>
+  </h4>
+  </div>
+</div>
+{% endblock %}

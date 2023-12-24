@@ -1,0 +1,52 @@
+{%extends 'layout/base.html'%}
+{% load  static  %}
+{% block nav%}
+{% include 'layout/partials/nav.html'%}
+{% endblock %}
+{% block content %}
+<div class=" home bg-primary">
+    <div class="mt-5 p-4 text-white text-center">
+       <h1 class="display-4 " >
+        SEARCH RESULT
+       </h1>
+       <P>Resultat de la recherche</p>
+    </div>
+</div>
+{% endblock %}
+
+{% block section %}
+<div class="container mt-4 marge">
+   {% if null %}
+   <h3>
+   <div class="alert alert-primary text-center container">
+    {{ null }} <i class="fa fa-exclamation-triangle"></i>
+ </div>
+ <h3>
+   {% else %}
+   <div class="row">
+    {% for students in student%}
+    <div class="col-sm-4 ">
+      <div class="card shadow-sm mb-3" style="width: 18rem;">
+       {% if students.sexe_el == "M" %}
+       <img class="card-img-top" src="{% static 'images/4.jpg' %}" alt="Card image cap">
+       {% else %}
+       <img class="card-img-top" src="{% static 'images/3.jpg' %}"  alt="Card image cap">
+       {% endif %}
+        <div class="card-body">
+            <p class="card-text">Matricule: {{ students.matr_eleve}}</p>
+            <p class="card-text">Nom: {{ students.nom_el}}</p>
+            <p class="card-text">Post-Nom: {{ students.post_nom_el}}</p>
+            <p class="card-text">Option: {{ students.option}}</p>
+            <p class="card-text">Classe: {{ students.classe}}</p>
+        </div>
+        <div class="p-2"><a href="{% url 'app:eleve_update' students.id %}" class="btn btn-primary text-white">Modifier</a></div>
+      </div>
+    </div>
+    {% endfor %}
+</div>
+   {% endif %}
+</div>
+{% endblock%}
+{% block footer %}
+{% include 'layout/partials/footer.html'%}
+{% endblock %}
